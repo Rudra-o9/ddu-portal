@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DDU | Academic Details</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="portal-body">
+  <div id="nav-container"></div>
+
+  <main class="portal-main">
+    <div class="page-title-bar">
+      <h1 class="page-title">Academic Details <span class="page-title-sub">PATHAK RUDRA VISHALBHAI</span></h1>
+    </div>
+
+    <div class="generic-card">
+      <div class="ia-card-header" style="padding:14px 20px;">Academic Information</div>
+      <div class="sem-tabs">
+        <button class="sem-tab active" onclick="switchSem(this,'ac-sem5')">Semester - 5</button>
+        <button class="sem-tab" onclick="switchSem(this,'ac-sem4')">Semester - 4</button>
+        <button class="sem-tab" onclick="switchSem(this,'ac-sem3')">Semester - 3</button>
+        <button class="sem-tab" onclick="switchSem(this,'ac-sem2')">Semester - 2</button>
+        <button class="sem-tab" onclick="switchSem(this,'ac-sem1')">Semester - 1</button>
+      </div>
+
+      <div id="ac-sem5" class="sem-content active" style="padding:16px;">
+        <table class="marks-table">
+          <thead>
+            <tr>
+              <th style="text-align:left; padding:8px 10px;">Sr.</th>
+              <th style="text-align:left; padding:8px 10px;">Code</th>
+              <th style="text-align:left; padding:8px 10px;">Subject</th>
+              <th style="padding:8px 10px;">Credits</th>
+              <th style="padding:8px 10px;">Type</th>
+              <th style="padding:8px 10px;">Grade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td><a href="#" class="course-link">23CE513</a></td><td style="text-align:left;">OPERATING SYSTEM</td><td>4</td><td>Theory</td><td>-</td></tr>
+            <tr><td>2</td><td><a href="#" class="course-link">23CE514</a></td><td style="text-align:left;">ADVANCED ALGORITHMS</td><td>4</td><td>Theory</td><td>-</td></tr>
+            <tr><td>3</td><td><a href="#" class="course-link">23CE517</a></td><td style="text-align:left;">MICROPROCESSOR FUNDAMENTALS &amp; PROGRAMMING</td><td>3</td><td>Theory</td><td>-</td></tr>
+            <tr><td>4</td><td><a href="#" class="course-link">23CE520</a></td><td style="text-align:left;">ADVANCED TECHNOLOGIES</td><td>3</td><td>Theory</td><td>-</td></tr>
+            <tr><td>5</td><td><a href="#" class="course-link">26CE521</a></td><td style="text-align:left;">WEB APPLICATION DEVELOPMENT</td><td>3</td><td>Theory</td><td>-</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="ac-sem4" class="sem-content" style="padding:16px;"><div class="no-notif"><span class="info-circle">&#9432;</span> No academic data for Semester 4.</div></div>
+      <div id="ac-sem3" class="sem-content" style="padding:16px;"><div class="no-notif"><span class="info-circle">&#9432;</span> No academic data for Semester 3.</div></div>
+      <div id="ac-sem2" class="sem-content" style="padding:16px;"><div class="no-notif"><span class="info-circle">&#9432;</span> No academic data for Semester 2.</div></div>
+      <div id="ac-sem1" class="sem-content" style="padding:16px;"><div class="no-notif"><span class="info-circle">&#9432;</span> No academic data for Semester 1.</div></div>
+    </div>
+  </main>
+
+  <script src="nav.js"></script>
+  <script>
+    initNav('academic');
+    function switchSem(btn, semId) {
+      document.querySelectorAll('.sem-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.sem-content').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(semId).classList.add('active');
+    }
+  </script>
+</body>
+</html>

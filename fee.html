@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DDU | Fee Details</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="portal-body">
+  <div id="nav-container"></div>
+
+  <main class="portal-main">
+    <div class="page-title-bar">
+      <h1 class="page-title">Fee Details <span class="page-title-sub">PATHAK RUDRA VISHALBHAI</span></h1>
+    </div>
+
+    <div class="generic-card">
+      <div class="ia-card-header" style="padding:14px 20px;">Fee Summary</div>
+      <div class="inner-tabs">
+        <button class="inner-tab active" onclick="switchInnerTab(this,'fee-details')">Fee Details</button>
+        <button class="inner-tab" onclick="switchInnerTab(this,'fee-receipt')">Fee Receipt</button>
+        <button class="inner-tab" onclick="switchInnerTab(this,'fee-pay')">Pay Online</button>
+      </div>
+      <div id="fee-details" class="inner-tab-content active">
+        <table class="fee-table">
+          <thead>
+            <tr>
+              <th>Sr.</th>
+              <th>Academic Year</th>
+              <th>Semester</th>
+              <th>Fee Type</th>
+              <th>Amount (₹)</th>
+              <th>Due Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>2026-27</td>
+              <td>Semester 5</td>
+              <td>Tuition Fee</td>
+              <td>85,000</td>
+              <td>30-Jul-2026</td>
+              <td class="fee-status-paid">Paid</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>2026-27</td>
+              <td>Semester 5</td>
+              <td>Examination Fee</td>
+              <td>2,500</td>
+              <td>15-Oct-2026</td>
+              <td class="fee-status-paid">Paid</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>2025-26</td>
+              <td>Semester 4</td>
+              <td>Tuition Fee</td>
+              <td>80,000</td>
+              <td>15-Jan-2026</td>
+              <td class="fee-status-paid">Paid</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="fee-receipt" class="inner-tab-content">
+        <div class="no-record-box"><span class="no-record-icon">&#10060;</span> No receipts available for download.</div>
+      </div>
+      <div id="fee-pay" class="inner-tab-content">
+        <div class="note-box"><strong>Note :</strong> All dues have been cleared. No pending payments.</div>
+      </div>
+    </div>
+  </main>
+
+  <script src="nav.js"></script>
+  <script>
+    initNav('fee');
+    function switchInnerTab(btn, tabId) {
+      document.querySelectorAll('.inner-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.inner-tab-content').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
+</body>
+</html>

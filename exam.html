@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DDU | Admit Card</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="portal-body">
+  <div id="nav-container"></div>
+
+  <main class="portal-main">
+    <div class="page-title-bar">
+      <h1 class="page-title">Admit Card <span class="page-title-sub">PATHAK RUDRA VISHALBHAI</span></h1>
+    </div>
+
+    <div class="generic-card">
+      <div class="search-card">
+        <div class="search-card-title">
+          &#9881; SEARCH YOUR ADMIT CARD
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+          <label>* Exam</label>
+          <select id="exam-select">
+            <option value="">Select Exam</option>
+            <option value="end">End Semester Exam - 2026-27 (Odd)</option>
+            <option value="mid">Mid Semester Exam - 2026-27 (Odd)</option>
+          </select>
+          <button onclick="searchAdmitCard()" style="background:#1abc9c;color:#fff;border:none;padding:7px 16px;border-radius:3px;cursor:pointer;font-size:13px;">Search</button>
+        </div>
+        <div id="admit-result" style="display:none;">
+          <div class="no-record-box">
+            <span class="no-record-icon">&#10060;</span> Admit Card not available for selected exam. Please contact the exam cell.
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="nav.js"></script>
+  <script>
+    initNav('exam');
+    function searchAdmitCard() {
+      const sel = document.getElementById('exam-select').value;
+      const res = document.getElementById('admit-result');
+      if (sel) {
+        res.style.display = 'block';
+      } else {
+        alert('Please select an exam first.');
+      }
+    }
+  </script>
+</body>
+</html>

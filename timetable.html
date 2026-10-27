@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DDU | Student Attendance</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="portal-body">
+  <div id="nav-container"></div>
+
+  <main class="portal-main">
+    <div class="page-title-bar">
+      <h1 class="page-title">Attendance Summary of Semester 5 <span class="page-title-sub">PATHAK RUDRA VISHALBHAI</span></h1>
+    </div>
+
+    <div class="generic-card">
+      <div class="attendance-layout">
+        <!-- Left Sidebar: Semester list -->
+        <div class="sem-sidebar">
+          <div class="sem-sidebar-item active" onclick="selectSem(this,'sem5-att')">
+            <span>Semester - 5 (2026-27 - Odd)</span>
+            <span class="sem-sidebar-pct">80.23 %</span>
+          </div>
+          <div class="sem-sidebar-item" onclick="selectSem(this,'sem4-att')">
+            <span>Semester - 4 (2025-26 - Even)</span>
+            <span class="sem-sidebar-pct">78.70 %</span>
+          </div>
+          <div class="sem-sidebar-item" onclick="selectSem(this,'sem3-att')">
+            <span>Semester - 3 (2025-26 - Odd)</span>
+            <span class="sem-sidebar-pct">82.82 %</span>
+          </div>
+          <div class="sem-sidebar-item" onclick="selectSem(this,'sem2-att')">
+            <span>Semester - 2 (2024-25 - Even)</span>
+            <span class="sem-sidebar-pct">85.82 %</span>
+          </div>
+          <div class="sem-sidebar-item" onclick="selectSem(this,'sem1-att')">
+            <span>Semester - 1 (2024-25 - Odd)</span>
+            <span class="sem-sidebar-pct">88.78 %</span>
+          </div>
+        </div>
+
+        <!-- Right Panel: Attendance Data -->
+        <div class="attendance-right">
+
+          <!-- Sem 5 -->
+          <div id="sem5-att" class="sem-att-panel">
+            <div style="overflow:hidden; margin-bottom:10px;">
+              <button class="att-download-btn" id="download-report-btn">Download Report</button>
+            </div>
+            <!-- Stats Cards -->
+            <div class="att-stats-row">
+              <div class="att-stat-card purple">
+                <div class="att-stat-num">258</div>
+                <div class="att-stat-label">Total Slots</div>
+              </div>
+              <div class="att-stat-card teal">
+                <div class="att-stat-num">207</div>
+                <div class="att-stat-label">Present Slots</div>
+              </div>
+              <div class="att-stat-card red">
+                <div class="att-stat-num">51</div>
+                <div class="att-stat-label">Absent Slots</div>
+              </div>
+              <div class="att-stat-card blue">
+                <div class="att-stat-num">80.23</div>
+                <div class="att-stat-label">Present %</div>
+              </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="att-tabs">
+              <button class="att-tab active" onclick="switchAttTab(this,'att-summary')">Attendance Summary</button>
+              <button class="att-tab" onclick="switchAttTab(this,'att-absent')">Absent Days</button>
+              <button class="att-tab" onclick="switchAttTab(this,'att-month')">Month View</button>
+            </div>
+
+            <div id="att-summary" class="att-tab-panel active">
+              <div class="att-search-row">
+                Search: <input type="text" id="att-search" placeholder="" oninput="filterAttTable(this.value)" />
+              </div>
+              <table class="marks-table" id="att-table">
+                <thead>
+                  <tr>
+                    <th style="text-align:left; padding:8px 10px;">Sr.</th>
+                    <th style="text-align:left; padding:8px 10px;">Slot Type</th>
+                    <th style="text-align:left; padding:8px 10px; min-width:300px;">Subject</th>
+                    <th style="padding:8px 10px;">Conducted</th>
+                    <th style="padding:8px 10px;">Present</th>
+                    <th style="padding:8px 10px;">Absent</th>
+                    <th style="padding:8px 10px;">Attendance %</th>
+                  </tr>
+                </thead>
+                <tbody id="att-tbody">
+                  <tr><td>1</td><td>Practical</td><td style="text-align:left;">23CE513 - OPERATING SYSTEM</td><td>12</td><td>11</td><td>1</td><td class="att-pct-green">91.67 %</td></tr>
+                  <tr><td>2</td><td>Theory</td><td style="text-align:left;">23CE513 - OPERATING SYSTEM</td><td>42</td><td>33</td><td>9</td><td class="att-pct-green">78.57 %</td></tr>
+                  <tr><td>3</td><td>Practical</td><td style="text-align:left;">23CE514 - ADVANCED ALGORITHMS</td><td>11</td><td>10</td><td>1</td><td class="att-pct-green">90.91 %</td></tr>
+                  <tr><td>4</td><td>Theory</td><td style="text-align:left;">23CE514 - ADVANCED ALGORITHMS</td><td>43</td><td>34</td><td>9</td><td class="att-pct-green">79.07 %</td></tr>
+                  <tr><td>5</td><td>Practical</td><td style="text-align:left;">23CE517 - MICROPROCESSOR FUNDAMENTALS &amp; PROGRAMMING</td><td>12</td><td>10</td><td>2</td><td class="att-pct-green">83.33 %</td></tr>
+                  <tr><td>6</td><td>Theory</td><td style="text-align:left;">23CE517 - MICROPROCESSOR FUNDAMENTALS &amp; PROGRAMMING</td><td>32</td><td>25</td><td>7</td><td class="att-pct-green">78.13 %</td></tr>
+                  <tr><td>7</td><td>Practical</td><td style="text-align:left;">23CE519 - SMART DEVICE PROGRAMMING</td><td>12</td><td>10</td><td>2</td><td class="att-pct-green">83.33 %</td></tr>
+                  <tr><td>8</td><td>Practical</td><td style="text-align:left;">23CE520 - ADVANCED TECHNOLOGIES</td><td>11</td><td>9</td><td>2</td><td class="att-pct-green">81.82 %</td></tr>
+                  <tr><td>9</td><td>Theory</td><td style="text-align:left;">23CE520 - ADVANCED TECHNOLOGIES</td><td>43</td><td>33</td><td>10</td><td class="att-pct-green">76.74 %</td></tr>
+                  <tr><td>10</td><td>Practical</td><td style="text-align:left;">26CE521 - WEB APPLICATION DEVELOPMENT</td><td>16</td><td>13</td><td>3</td><td class="att-pct-green">81.25 %</td></tr>
+                  <tr><td>11</td><td>Theory</td><td style="text-align:left;">26CE521 - WEB APPLICATION DEVELOPMENT</td><td>24</td><td>19</td><td>5</td><td class="att-pct-green">79.17 %</td></tr>
+                </tbody>
+                <tfoot>
+                  <tr style="font-weight:bold; background:#f5f5f5;">
+                    <td colspan="3" style="text-align:right; padding:8px 10px;">Total</td>
+                    <td style="text-align:center;">258</td>
+                    <td style="text-align:center;">207</td>
+                    <td style="text-align:center;">51</td>
+                    <td class="att-pct-green" style="text-align:center;">80.23 %</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+
+            <div id="att-absent" class="att-tab-panel" style="display:none;">
+              <div class="no-notif" style="margin:10px 0;"><span class="info-circle">&#9432;</span> No absent days data to display.</div>
+            </div>
+            <div id="att-month" class="att-tab-panel" style="display:none;">
+              <div class="no-notif" style="margin:10px 0;"><span class="info-circle">&#9432;</span> Month view not available.</div>
+            </div>
+          </div>
+
+          <!-- Other semesters placeholder -->
+          <div id="sem4-att" class="sem-att-panel" style="display:none;">
+            <div class="no-notif"><span class="info-circle">&#9432;</span> Attendance data for Semester 4 not available.</div>
+          </div>
+          <div id="sem3-att" class="sem-att-panel" style="display:none;">
+            <div class="no-notif"><span class="info-circle">&#9432;</span> Attendance data for Semester 3 not available.</div>
+          </div>
+          <div id="sem2-att" class="sem-att-panel" style="display:none;">
+            <div class="no-notif"><span class="info-circle">&#9432;</span> Attendance data for Semester 2 not available.</div>
+          </div>
+          <div id="sem1-att" class="sem-att-panel" style="display:none;">
+            <div class="no-notif"><span class="info-circle">&#9432;</span> Attendance data for Semester 1 not available.</div>
+          </div>
+
+        </div><!-- /attendance-right -->
+      </div><!-- /attendance-layout -->
+    </div>
+  </main>
+
+  <script src="nav.js"></script>
+  <script>
+    initNav('timetable');
+
+    function selectSem(el, panelId) {
+      document.querySelectorAll('.sem-sidebar-item').forEach(i => i.classList.remove('active'));
+      el.classList.add('active');
+      document.querySelectorAll('.sem-att-panel').forEach(p => p.style.display = 'none');
+      document.getElementById(panelId).style.display = 'block';
+    }
+
+    function switchAttTab(btn, tabId) {
+      document.querySelectorAll('.att-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.att-tab-panel').forEach(p => p.style.display = 'none');
+      btn.classList.add('active');
+      document.getElementById(tabId).style.display = 'block';
+    }
+
+    function filterAttTable(query) {
+      const rows = document.querySelectorAll('#att-tbody tr');
+      rows.forEach(row => {
+        row.style.display = row.textContent.toLowerCase().includes(query.toLowerCase()) ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

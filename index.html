@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dharmsinh Desai University | Login</title>
+  <meta name="description" content="Login to Dharmsinh Desai University Student Portal - GNUMS" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-body">
+
+  <div class="login-wrapper">
+    <!-- Left: University Photo -->
+    <div class="login-photo">
+      <img src="images/ddu_building.jpg" alt="Dharmsinh Desai University Campus" />
+    </div>
+
+    <!-- Right: Login Form Panel -->
+    <div class="login-panel">
+      <!-- Logo & University Name -->
+      <div class="login-logo-row">
+        <div class="login-logo-icon">
+          <img src="images/ddu_logo.jpg" alt="DDU Logo" class="logo-img" />
+        </div>
+        <div class="login-university-name">
+          <span>DHARMSINH</span>
+          <span>DESAI</span>
+          <span>UNIVERSITY</span>
+        </div>
+      </div>
+
+      <!-- Role -->
+      <div class="form-group">
+        <label class="required-label">Role</label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="role" value="staff" id="role-staff" />
+            Staff
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="role" value="student" id="role-student" checked />
+            Student
+          </label>
+        </div>
+      </div>
+
+      <!-- Username -->
+      <div class="form-group">
+        <label class="required-label" for="username">Username</label>
+        <input type="email" id="username" name="username" class="form-input" value="rudrapathakv20@gmail.com" placeholder="Enter username" />
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label class="required-label" for="password">
+          Password
+          <span class="info-icon" title="Password info">&#9432;</span>
+        </label>
+        <input type="password" id="password" name="password" class="form-input" placeholder="Enter password" />
+        <div class="show-password-row">
+          <input type="checkbox" id="show-password" onchange="togglePassword()" />
+          <label for="show-password" class="show-password-label">Show Password</label>
+        </div>
+      </div>
+
+      <!-- Error message (hidden by default) -->
+      <div id="login-error" class="login-error" style="display:none;">
+        Invalid username or password. Please try again.
+      </div>
+
+      <!-- Buttons -->
+      <div class="btn-row">
+        <button class="btn-login" onclick="doLogin()">Login</button>
+        <button class="btn-forgot">Forgot Password</button>
+      </div>
+
+      <!-- Chrome Notice -->
+      <p class="chrome-notice">Please use Google Chrome for better experience</p>
+
+      <!-- Maintenance Notice -->
+      <div class="maintenance-box">
+        <span class="warn-icon">&#9651;</span>
+        System will be under maintenance everyday between <strong>11:55 PM to 12:30 AM.</strong>
+      </div>
+
+      <!-- Download App -->
+      <div class="download-section">
+        <p class="download-title"><strong>Download Students / Parents App</strong></p>
+        <div class="store-badges">
+          <a href="#" class="badge-link" id="google-play-badge">
+            <div class="store-badge google-play">
+              <span class="badge-icon">&#9654;</span>
+              <div class="badge-text">
+                <span class="badge-sub">GET IT ON</span>
+                <span class="badge-main">Google Play</span>
+              </div>
+            </div>
+          </a>
+          <a href="#" class="badge-link" id="app-store-badge">
+            <div class="store-badge app-store">
+              <span class="badge-icon apple-icon"></span>
+              <div class="badge-text">
+                <span class="badge-sub">Download on the</span>
+                <span class="badge-main">App Store</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const pwd = document.getElementById('password');
+      const cb = document.getElementById('show-password');
+      pwd.type = cb.checked ? 'text' : 'password';
+    }
+
+    function doLogin() {
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const errEl = document.getElementById('login-error');
+
+      if (username === 'rudrapathakv20@gmail.com' && password === 'Rvppathak@9') {
+        errEl.style.display = 'none';
+        window.location.href = 'dashboard.html';
+      } else {
+        errEl.style.display = 'block';
+      }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') doLogin();
+    });
+  </script>
+</body>
+</html>
